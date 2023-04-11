@@ -4,6 +4,7 @@ import "./PostCard.css"
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
 import {RiSendPlaneLine} from 'react-icons/ri'
+import CommentModel from '../Comment/CommentModel'
 
 const PostCard = () => {
     const [showDropDown, setShowDropDown] = useState(false);
@@ -72,7 +73,9 @@ const PostCard = () => {
                       <input className='commentInput' type='text' placeholder='Add a comment...' />
                   </div>
               </div>
-        </div>
+          </div>
+          
+          <CommentModel />
     </div>
   )
 }
