@@ -85,3 +85,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 # npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
 
 # npm install react-icons --save
+
+# npm i styled-component
