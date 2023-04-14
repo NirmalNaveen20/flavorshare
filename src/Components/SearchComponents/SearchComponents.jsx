@@ -1,5 +1,6 @@
 import React from 'react'
 import "./SearchComponents.css"
+import SearchUserCard from './SearchUserCard'
 
 const SearchComponents = () => {
   return (
@@ -10,8 +11,8 @@ const SearchComponents = () => {
           </div>
           <hr />
 
-          <div>
-              
+          <div className='px-3 pt-5'>
+              {[1,1,1,1,1].map((item)=><SearchUserCard />)}
           </div>
     </div>
   )
