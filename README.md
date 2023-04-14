@@ -68,22 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-### Dependencies ###
-
-# npm install -g create-react-app
-# npm -g list
-
-# npm i formik yup react-icons redux redux-thunk react-redux react-reouter-dom
-
-# Install and configure Tailwind CSS
-
-# npm i react-router-dom
-
-# npm i react-icons
-
-# npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
-
-# npm install react-icons --save
-
-# npm i styled-component
