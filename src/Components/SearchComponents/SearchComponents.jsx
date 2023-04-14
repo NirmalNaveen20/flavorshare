@@ -18,4 +18,4 @@ const SearchComponents = () => {
   )
 }
 
-export default SearchComponents
+export default SearchComponents 
