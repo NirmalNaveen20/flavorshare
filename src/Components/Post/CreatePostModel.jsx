@@ -4,6 +4,7 @@ import { FaPhotoVideo } from 'react-icons/fa'
 import './CreatePostModel.css'
 import { GrEmoji } from 'react-icons/gr'
 import { GoLocation } from 'react-icons/go'
+import { useDisclosure } from '@chakra-ui/react'
 
 const CreatePostModel = ({
     onClose, isOpen
