@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import CreatePostModel from '../Post/CreatePostModel';
 import { useDisclosure } from '@chakra-ui/react';
 import SearchComponents from '../SearchComponents/SearchComponents';
+import logo from '../../Images/flavor.png';
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState("");
@@ -38,7 +39,7 @@ const Sidebar = () => {
               {<div>
                   
             {activeTab!=="Search" && <div className='pt-10'>
-                <img className='w-40' src='https://i.imgur.com/zqpwkLQ.png' alt='' />
+                <img className='w-40' src={logo} alt='' />
               </div>}
               <div className='mt-10'>
                   {mainu.map((item) => (
