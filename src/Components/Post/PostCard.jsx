@@ -50,7 +50,7 @@ const PostCard = () => {
               </div>
               
             <div className='w-full'>
-                    <img src='https://cdn.pixabay.com/photo/2023/03/28/09/28/cat-7882701__340.jpg' alt='' />
+                    <img src='https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600' alt='' />
             </div>
 
               <div className='flex justify-between items-center w-full px-5 py-4'>
