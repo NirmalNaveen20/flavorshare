@@ -12,6 +12,8 @@ import * as Yup from "yup";
 import logo from "../../Images/flavor.png"
 import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../Redux/Auth/Action";
+import { useEffect } from "react";
+import { getUserProfileAction } from "../../Redux/User/Action";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Email is Required"),
@@ -26,13 +28,29 @@ const Signin = () => {
   const dispatch = useDispatch();
   const { user, signin } = useSelector((store) => store);
   const toast = useToast();
-
+  const jwt = localStorage.getItem("token");
 
   const handleSubmit = (values, actions) => {
     console.log(values);
     dispatch(signinAction(values));
     actions.setSubmitting(false);
   };
+
+  useEffect(() => {
+    if (jwt) dispatch(getUserProfileAction(jwt));
+  }, [jwt]);
+
+  useEffect(() => {
+    if (user?.reqUser?.username) {
+      navigate(`/${user.reqUser?.username}`);
+      toast({
+        title: "signin successfull",
+        status: "success",
+        duration: 8000,
+        isClosable: true,
+      });
+    }
+  }, [jwt, user.reqUser]);
 
   const handleNavigate = () =>navigate("/signup")
 
