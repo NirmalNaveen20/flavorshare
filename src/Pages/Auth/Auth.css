@@ -1,0 +1,21 @@
+.mobileWallpaper{
+    background-image: url("https://res.cloudinary.com/dnbw04gbs/image/upload/v1679490783/screenshot2_m2zc0v.png");
+    animation: changeBg 8s infinite;
+
+}
+
+
+@keyframes changeBg {
+    0% {
+      background-image: url('https://res.cloudinary.com/dnbw04gbs/image/upload/v1679490221/screenshot4_hb7xtr.png');
+    }
+    25% {
+      background-image: url('https://res.cloudinary.com/dnbw04gbs/image/upload/v1679490683/screenshot1_1_lnvvd8.png');
+    }
+    50%{
+background-image: url("https://res.cloudinary.com/dnbw04gbs/image/upload/v1679492135/screenshot3_ywhgnv.png");
+    }
+    75% {
+      background-image: url('https://res.cloudinary.com/dnbw04gbs/image/upload/v1679490783/screenshot2_m2zc0v.png');
+    }
+  }
