@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Flavorshare Social Media React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Flavorshare**! This is a social media app built using React and Redux, with a beautiful UI powered by Chakra UI. With Flavorshare, users can register and create new posts to share with their friends and followers. They can also like and comment on other users' posts, and save their favorite posts for later.
 
-## Available Scripts
 
-In the project directory, you can run:
+##  Technologies Used
 
-### `npm start`
+- React
+- Redux
+- Chakra UI
+- Spring Boot (for backend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User registration and login
+- Create new posts
+- Like and comment on posts
+- Save favorite posts
+- Beautiful and user-friendly UI
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Use
+To use Flavorshare, simply clone this repository to your local machine and install the required dependencies by running the following command in your terminal:
+> npm install
 
-### `npm run build`
+This will install all of the required dependencies for the project, including React, Redux, and Chakra UI.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you have installed the dependencies, you can start the app on your local machine by running the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This will start the app, and you can begin using it right away.
 
-### `npm run eject`
+## Challenge
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+If you're feeling up for a challenge, try to find the dependencies required for the front end implementation of Flavorshare using required dependencies. If you're not able to find the dependencies, don't worry! You can contact me through this site for assistance https://nirmalnaveen.me.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Backend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The backend for Flavorshare is implemented using Spring Boot. We are currently in the process of updating the backend files, and will update this repository with the latest changes as soon as possible.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
+We welcome contributions to Flavorshare from the community! If you would like to contribute, please submit a pull request with your changes. We will review your code and merge it into the main branch if it meets our quality standards.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## I ❤️ OPEN SOURCE
