@@ -5,11 +5,14 @@ import {
   FormControl,
   FormErrorMessage,
   Input,
+  useToast,
 } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Images/flavor.png"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signupAction } from "../../Redux/Auth/Action";
+import { useEffect } from "react";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Email is Required"),
@@ -28,11 +31,27 @@ const Signup = () => {
   const initialValues = { email: "", username: "", password: "", name: "" };
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast();
+  const { auth } = useSelector((store) => store);
 
   const handleNavigate = () =>navigate("/login")
-    const handleSubmit = () => {
-      
+  const handleSubmit = (values, actions) => {
+    console.log("values: ", values);
+    dispatch(signupAction(values));
+    actions.setSubmitting(false);
+  };
+
+  useEffect(()=>{
+    if(auth.signup?.username){
+      navigate("/login")
+      toast({
+        title: `Account created ${auth.signup?.username}`,
+        status: 'success',
+        duration: 5000,
+        isClosable: true,
+      })
     }
+},[auth.signup])
 
   return (
     <div>
