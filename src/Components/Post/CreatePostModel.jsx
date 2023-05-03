@@ -5,6 +5,9 @@ import './CreatePostModel.css'
 import { GrEmoji } from 'react-icons/gr'
 import { GoLocation } from 'react-icons/go'
 import { useDisclosure } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux'
+import { createPost } from '../../Redux/Post/Action'
+import { uploadToCloudinary, uploadToCloudnary } from '../../Config/UploadToCloudnary'
 
 const CreatePostModel = ({
     onClose, isOpen
@@ -13,6 +16,10 @@ const CreatePostModel = ({
     const [isDragOver, setIsDragOver] = useState(false);
     const [file, setFile] = useState();
     const [caption, setCaption] = useState("");
+    const dispatch = useDispatch();
+    const [imageUrl, setImageUrl] = useState("");
+    const [location, setLocation] = useState("");
+    const token = localStorage.getItem("token");
 
     const handleDrop = (event) => {
         event.preventDefault()
@@ -32,9 +39,12 @@ const CreatePostModel = ({
         setIsDragOver(false)
     }
 
-    const handleOnChange = (e) => {
+    const handleOnChange = async (e) => {
         const file = e.target.files[0];
         if (file && (file.type.startsWith("image/") || file.type.startsWith("video/"))) {
+            const imgUrl = await uploadToCloudnary(file)
+            setImageUrl(imgUrl);
+
             setFile(file);
             console.log("file :", file)
         }
@@ -44,8 +54,23 @@ const CreatePostModel = ({
         }
     }
 
+
+
     const handleCaptionChange = (e) => {
         setCaption(e.target.value)
+    }
+
+    const handleCreatePost = () => {
+        const data = {
+            jwt: token,
+            data: {
+                caption,
+                location,
+                image: imageUrl
+            },
+        }
+        dispatch(createPost(data));
+        
     }
   return (
     <div>
@@ -54,7 +79,7 @@ const CreatePostModel = ({
         <ModalContent>
             <div className='flex justify-between py-1 px-10 items-center'>
                       <p>Create New Review Post</p>
-                      <Button className='inline-flex' variant={"ghost"} size={"sm"} colorScheme={'blue'}>Share</Button>
+                      <Button className='inline-flex' variant={"ghost"} size={"sm"} colorScheme={'blue'} onClick={handleCreatePost}>Share</Button>
                   </div>
                   <hr />
           <ModalBody>
@@ -91,7 +116,7 @@ const CreatePostModel = ({
                     <hr />
                     
                     <div className='p-2 flex justify-between items-center'>
-                        <input className='locationInput' type='text' placeholder='location' name='location' />
+                        <input onChange={(e)=>setLocation(e.target.value)} className='locationInput' type='text' placeholder='location' name='location' />
                         <GoLocation />
                     </div>
                     <hr />
