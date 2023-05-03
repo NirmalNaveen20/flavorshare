@@ -70,7 +70,7 @@ const CreatePostModel = ({
             },
         }
         dispatch(createPost(data));
-        
+
     }
   return (
     <div>
@@ -79,7 +79,7 @@ const CreatePostModel = ({
         <ModalContent>
             <div className='flex justify-between py-1 px-10 items-center'>
                       <p>Create New Review Post</p>
-                      <Button className='inline-flex' variant={"ghost"} size={"sm"} colorScheme={'blue'} onClick={handleCreatePost}>Share</Button>
+                      <Button className='inline-flex' variant={"ghost"} size={"sm"} colorScheme={'blue'} onClick={handleCreatePost}>Post</Button>
                   </div>
                   <hr />
           <ModalBody>
