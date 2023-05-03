@@ -7,7 +7,7 @@ import { RiSendPlaneLine } from 'react-icons/ri'
 import CommentModel from '../Comment/CommentModel'
 import { useDisclosure } from '@chakra-ui/react'
 
-const PostCard = () => {
+const PostCard = ({post}) => {
     const [showDropDown, setShowDropDown] = useState(false);
     const [isPostLiked, setIsPostLiked] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
@@ -50,7 +50,7 @@ const PostCard = () => {
               </div>
               
             <div className='w-full'>
-                    <img src='https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600' alt='' />
+                    <img src={post?.image} alt='' />
             </div>
 
               <div className='flex justify-between items-center w-full px-5 py-4'>
