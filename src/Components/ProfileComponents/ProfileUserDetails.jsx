@@ -30,8 +30,8 @@ export const ProfileUserDetails = () => {
                       </div>
                   </div>
                   <div>
-                      <p className='font-semibold'>Full Name</p>
-                      <p className='font-thin text-sm'>🏁Racing lover🏁 #bikeride #bikelife #biker 😎 Mein ho hero tera 😎 Wish me on March 12.🎁</p>
+                      <p className='font-bold'>Kushani Weerasooriya</p>
+                      <p className='font-thin text-sm'>You’ll have plenty of time to change the world later. Right now, go out there and make a living.🍗😃</p>
                   </div>
               </div>
         </div>

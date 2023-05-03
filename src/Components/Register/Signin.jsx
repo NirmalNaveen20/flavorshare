@@ -108,7 +108,7 @@ const Signin = () => {
                 </Field>
                 <p className="text-center text-sm">
                   People who use our service may have uploaded your contact
-                  information to Instagram. Learn More
+                  information to FlavorFeed. Learn More
                 </p>
                 <p className="mt-5 text-center text-sm">
                   By signing up, you agree to our Terms , Privacy Policy and
