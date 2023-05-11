@@ -1,6 +1,6 @@
-import {CREATE_NEW_POST, DELETE_POST, GET_SINGLE_POST, GET_USER_POST, LIKE_POST, REQ_USER_POST, SAVE_POST, UNLIKE_POST, UNSAVE_POST} from "./ActionType";
+import {CREATE_NEW_POST, DELETE_POST, GET_SINGLE_POST, GET_USER_POST, LIKE_POST, SAVE_POST, UNLIKE_POST, UNSAVE_POST} from "./ActionType";
 
-const initialState = {
+const initialValue = {
     createdPost: null,
     usersPost: [],
     deletedPost: null,
@@ -9,13 +9,9 @@ const initialState = {
     savedPost: null,
     unsavedPost:[],
     singlePost:null,
-  
-  
 };
 
-
-
-export const postReducer=(store=initialState, {type,payload})=>{
+export const PostReducer=(store=initialValue, {type,payload})=>{
 
     if(type===CREATE_NEW_POST){
         return {...store, createdPost:payload};

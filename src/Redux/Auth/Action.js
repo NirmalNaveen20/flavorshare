@@ -13,7 +13,8 @@ export const signinAction = (data) => async (dispatch) => {
 
     localStorage.setItem("token", token);
     console.log("token from header :- ", token);
-    dispatch({type:SIGN_IN,payload:token})
+    dispatch({ type: SIGN_IN, payload: token });
+    
   } catch (error) {
     console.log("catch error ", error);
   }
@@ -29,8 +30,11 @@ export const signupAction = (data) => async (dispatch) => {
       body: JSON.stringify(data),
     });
     const user = await res.json();
-    console.log("Signup :- ",user)
+
+    console.log("Signup :- ", user);
+    
     dispatch({ type: SIGN_UP, payload: user });
+    
   } catch (error) {
     console.log("catch error ", error);
   }

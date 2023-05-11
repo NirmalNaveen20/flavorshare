@@ -5,29 +5,36 @@ import PostCard from '../../Components/Post/PostCard'
 import CreatePostModel from '../../Components/Post/CreatePostModel'
 import { useDisclosure } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
-import { findUserPost } from '../../Redux/Post/Action'
+import { findUserPostAction } from '../../Redux/Post/Action'
+
 
 const HomePage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { userIds, setUserIds } = useState();
-  const reqUser = useSelector(store => store.user?.reqUser);
+  const [userIds, setUserIds ] = useState();
+  const {user, post} = useSelector((store) => store);
   const token = localStorage.getItem("token")
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const newIds = reqUser?.following?.map((user) => user.id)
-    
-    
-  }, [reqUser])
+    const following = user.reqUser?.following;
+    if (following) {
+      const newIds = following.map((user) => user.id);
+      setUserIds([user.reqUser?.id, ...newIds]);
+    } else {
+      setUserIds([user.reqUser?.id]);
+    }
+  }, [user.reqUser]);
+  
 
   useEffect(() => {
     const data = {
       jwt: token,
-      userIds:[userIds].join(",")
-    }
-    dispatch(findUserPost())
-  }, [])
+      userIds: [userIds].join(","),
+    };
+    dispatch(findUserPostAction(data));
+  }, [userIds, post.createdPost, post.deletedPost])
+  
   return (
     <div>
       <div className='mt-10 flex w-[100%] justify-center'>
@@ -39,7 +46,9 @@ const HomePage = () => {
           </div>
 
           <div className='space-y-10 w-full mt-10'>
-            {[1,1].map((item)=><PostCard />)}
+            {post.usersPost.length > 0 && post.usersPost.map((item) =>
+              <PostCard post={item} />
+            )}
           </div>
         </div>
         <div className='w-[27%]'>

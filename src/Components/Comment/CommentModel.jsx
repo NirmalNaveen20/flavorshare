@@ -23,7 +23,7 @@ const CommentModel = ({
           <ModalBody>
           <div className='flex h-[75vh]'>
             <div className='w-[45%] flex flex-col justify-center'>
-                <img className='max-h-full w-full' src='https://cdn.pixabay.com/photo/2023/03/28/01/10/money-7881948__340.jpg' alt='' />
+                <img className='max-h-full w-full' src='https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?auto=compress&cs=tinysrgb&w=1600' alt='' />
             </div>
             <div className='w-[55%] pl-10 relative'> 
                 <div className='flex justify-between items-center py-5'>

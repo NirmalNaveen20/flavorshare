@@ -8,10 +8,10 @@ const initialValue={
 export const AuthReducer=(store=initialValue,{type,payload})=>{
 
     if(type===SIGN_IN){
-        return{...store,signin:payload}
+        return{...store,singin:payload}
     }
     else if(type===SIGN_UP){
-        return{...store,signup:payload}
+        return{...store,singup:payload}
     }
 
     return store;

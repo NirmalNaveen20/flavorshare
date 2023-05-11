@@ -7,41 +7,36 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import logo from "../../Images/flavor.png"
-import { useDispatch, useSelector } from "react-redux";
 import { signinAction } from "../../Redux/Auth/Action";
-import { useEffect } from "react";
 import { getUserProfileAction } from "../../Redux/User/Action";
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email address").required("Email is Required"),
+  email: Yup.string().email("Invalid email address").required("Required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
-    .required("Password is Required"),
+    .required("Required"),
 });
 
 const Signin = () => {
   const initialValues = { email: "", password: "" };
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { user, signin } = useSelector((store) => store);
   const toast = useToast();
-  const jwt = localStorage.getItem("token");
 
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    dispatch(signinAction(values));
-    actions.setSubmitting(false);
-  };
+  const token = localStorage.getItem("token");
+  console.log("token in signin page ", token);
+  console.log("reqUser -: ", user);
+  useEffect(() => {
+    if (token) dispatch(getUserProfileAction(token || signin));
+  }, [signin, token]);
 
   useEffect(() => {
-    if (jwt) dispatch(getUserProfileAction(jwt));
-  }, [jwt]);
-
-  useEffect(() => {
-    if (user?.reqUser?.username) {
+    if (user?.reqUser?.username && token) {
       navigate(`/${user.reqUser?.username}`);
       toast({
         title: "signin successfull",
@@ -50,9 +45,13 @@ const Signin = () => {
         isClosable: true,
       });
     }
-  }, [jwt, user.reqUser]);
+  }, [user.reqUser]);
 
-  const handleNavigate = () =>navigate("/signup")
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    dispatch(signinAction(values));
+    actions.setSubmitting(false);
+  };
 
   return (
     <div className=" ">
@@ -60,7 +59,7 @@ const Signin = () => {
         <Box p={8} display="flex" flexDirection="column" alignItems="center">
           <img
             className="border border-red-800 mb-5"
-            src={logo}
+            src="https://i.imgur.com/zqpwkLQ.png"
             alt=""
           />
 
@@ -106,11 +105,11 @@ const Signin = () => {
                     </FormControl>
                   )}
                 </Field>
-                <p className="text-center text-sm">
+                <p className="text-center">
                   People who use our service may have uploaded your contact
-                  information to FlavorFeed. Learn More
+                  information to Instagram. Learn More
                 </p>
-                <p className="mt-5 text-center text-sm">
+                <p className="mt-5 text-center">
                   By signing up, you agree to our Terms , Privacy Policy and
                   Cookies Policy .
                 </p>
@@ -130,10 +129,10 @@ const Signin = () => {
       </div>
 
       <div className="w-full border border-slate-300 mt-5">
-        <p className="text-center py-2 text-sm">
+        <p className="text-center py-2">
           If You Don't Have Already Account{" "}
           <span
-            onClick={handleNavigate}
+            onClick={() => navigate("/signup")}
             className="ml-2 text-blue-700 cursor-pointer"
           >
             Sign Up
