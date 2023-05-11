@@ -1,11 +1,13 @@
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { BsBookmark, BsBookmarkFill, BsEmojiSmile, BsThreeDots } from 'react-icons/bs'
 import CommentCard from './CommentCard'
 import { RiSendPlaneLine } from 'react-icons/ri'
 import { FaRegComment } from 'react-icons/fa'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 import './CommentModel.css'
+import { useDispatch } from 'react-redux'
+import { createComment } from '../../../../React + SpringBoot Complete Project/Complete React/src/Redux/Comment/Action'
 
 const CommentModel = ({
   onClose,
@@ -15,6 +17,11 @@ const CommentModel = ({
   handlePostLike,
   handleSavePost
 }) => {
+
+  const [commentContent, setCommentContent] = useState();
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  
   return (
     <div>
         <Modal size={"4xl"} onClose={onClose} isOpen={isOpen} isCentered>
@@ -74,7 +81,17 @@ const CommentModel = ({
                 
                   <div className='flex items-center w-full'>
                       <BsEmojiSmile />
-                      <input className='commentInput' type='text' placeholder='Add a comment...' />
+                    <input
+                      className='commentInput'
+                      type='text'
+                      placeholder='Add a comment...'
+                      onChange={(e) => setCommentContent(e.target.value)}
+                      onKeyPress={(e) => {
+                        if (e.key == "Enter") {
+                          dispatch(createComment())
+                        }
+                      }}
+                    />
                   </div>
               </div>
 

@@ -1,5 +1,5 @@
 export const isPostLikedByUser = (post, userId) => {
-  for (let item of post.isPostLikedByUser) {
+  for (let item of post.likedByUsers) {
     if (item.id === userId) return true;
   }
   return false;

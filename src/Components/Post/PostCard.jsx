@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsThreeDots, BsBookmarkFill, BsBookmark, BsEmojiSmile } from 'react-icons/bs'
 import "./PostCard.css"
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
@@ -6,8 +6,9 @@ import { FaRegComment } from 'react-icons/fa'
 import { RiSendPlaneLine } from 'react-icons/ri'
 import CommentModel from '../Comment/CommentModel'
 import { useDisclosure } from '@chakra-ui/react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { likePostAction, savePostAction, unLikePostAction, unSavePostAction } from '../../Redux/Post/Action'
+import { isCommentLikedByUser, isSavePost } from '../../Config/Login'
 
 const PostCard = ({post}) => {
     const [showDropDown, setShowDropDown] = useState(false);
@@ -16,6 +17,7 @@ const PostCard = ({post}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const dispatch = useDispatch();
     const token = localStorage.getItem("token");
+    const { user} = useSelector((store) => store);
 
     const data={jwt:token,postId:post?.id}
     const handleSavePost = () => {
@@ -40,6 +42,11 @@ const PostCard = ({post}) => {
     const handleOpenCommentModal = () => {
         onOpen()
     }
+
+    useEffect(() => {
+        setIsPostLiked(isCommentLikedByUser(post, user.reqUser?.id));
+        setIsSaved(isSavePost(user.reqUser, post.id));
+    },[post.likedByUsers,user.reqUser])
 
   return (
     <div>
