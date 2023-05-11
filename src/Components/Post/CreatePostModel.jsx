@@ -6,12 +6,10 @@ import { GrEmoji } from 'react-icons/gr'
 import { GoLocation } from 'react-icons/go'
 import { useDisclosure } from '@chakra-ui/react'
 import { useDispatch } from 'react-redux'
-import { createPost } from '../../Redux/Post/Action'
+import { createPostAction } from '../../Redux/Post/Action'
 import { uploadToCloudinary, uploadToCloudnary } from '../../Config/UploadToCloudnary'
 
-const CreatePostModel = ({
-    onClose, isOpen
-}) => {
+const CreatePostModel = ({onClose, isOpen}) => {
 
     const [isDragOver, setIsDragOver] = useState(false);
     const [file, setFile] = useState();
@@ -24,7 +22,8 @@ const CreatePostModel = ({
     const handleDrop = (event) => {
         event.preventDefault()
         const droppedFile = event.dataTransfer.file[0];
-        if (droppedFile.type.startsWith("image/") || droppedFile.type.startsWith("video/")) {
+        if (droppedFile.type.startsWith("image/") || droppedFile.type.startsWith("video/"))
+        {
             setFile(droppedFile)
         }
     }
@@ -41,6 +40,7 @@ const CreatePostModel = ({
 
     const handleOnChange = async (e) => {
         const file = e.target.files[0];
+        
         if (file && (file.type.startsWith("image/") || file.type.startsWith("video/"))) {
             const imgUrl = await uploadToCloudnary(file)
             setImageUrl(imgUrl);
@@ -69,16 +69,20 @@ const CreatePostModel = ({
                 image: imageUrl
             },
         }
-        dispatch(createPost(data));
+        if (token) {
+            dispatch(createPostAction(data));
+            onClose();
+        }
+        
+    };
 
-    }
   return (
     <div>
         <Modal size={"4xl"} onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
             <div className='flex justify-between py-1 px-10 items-center'>
-                      <p>Create New Review Post</p>
+                      <p>Restaurant Details</p>
                       <Button className='inline-flex' variant={"ghost"} size={"sm"} colorScheme={'blue'} onClick={handleCreatePost}>Post</Button>
                   </div>
                   <hr />
