@@ -1,10 +1,9 @@
-import { CREATE_COMMENT, GET_POST_COMMENT, LIKE_COMMENT, UNLIKE_COMMENT } from "./ActionType"
+import { CREATE_COMMENT, GET_POST_COMMENT, LIKE_COMMENT } from "./ActionType"
 
 const initialState={
     createdComment:null,
-    postComments: null,
-    likedComment: null,
-    unlikeComment: null
+    postComments:null,
+    likedComment:null,
 }
 
 export const commentReducer=(store=initialState,{type,payload})=>{
@@ -16,9 +15,6 @@ export const commentReducer=(store=initialState,{type,payload})=>{
     }
     else if(type===LIKE_COMMENT){
         return {...store, likedComment:payload}
-    }
-    else if(type===UNLIKE_COMMENT){
-        return {...store, unlikeComment:payload}
     }
     return store;
 }

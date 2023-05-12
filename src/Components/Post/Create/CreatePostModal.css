@@ -1,0 +1,101 @@
+.custom-file-upload {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: .7rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #2684f0;
+    border-color: #2684f0;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+
+  /* drag and drop */
+
+
+  .drag-drop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+    font-size: 1.2rem;
+    color: #999;
+    
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .drag-drop p {
+    margin: 0 0 1rem;
+  }
+  
+  .custom-file-upload {
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #3897f0;
+    border: 1px solid #3897f0;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #2684f0;
+    border-color: #2684f0;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  .hrLine{
+    /* border border-black opacity-50 */
+    border-top: .5px solid rgb(0, 0, 0);
+    opacity: .3;
+  }
+  
+  .captionInput{
+    width: 100%;
+    margin-top: 5px;
+    /* border: none; */
+    outline: none;
+    resize: none;
+    font-size: small;
+    
+  }
+
+  
+textarea:focus {
+    /* border: none; Remove the border on focus */
+    outline: none;
+  }
+
+  .captionInput::placeholder{
+    font-size: small;
+  }
+
+  .modalBodyBox img{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .locationInput{
+    border: none;
+    outline: none;
+    width: 90%;
+    border:1x solid red
+  }
+  .locationInput:focus{
+    outline: none;
+  }

@@ -1,0 +1,11 @@
+
+  .logo {
+    font-family: 'Billabong', cursive;
+    font-size: 30px;
+    color: #222222;
+    text-shadow: 1px 1px 3px #000000;
+  }
+
+  .hideItemName{
+    display: none;
+  }

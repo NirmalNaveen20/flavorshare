@@ -10,230 +10,237 @@ import {
   UNSAVE_POST,
 } from "./ActionType";
 
-const BASE_API = "http://localhost:5454/api"
-
-export const createPostAction = (data) => async (dispatch) => {
+export const createPost = (data) => async (dispatch) => {
+  // console.log("token -- ", data.jwt)
+  // console.log("data -- ",data.data)
 
   try {
-    const res = await fetch(`${BASE_API}/posts/create`, {
-      method: "POST",
+      const res = await fetch("http://localhost:5454/api/posts/create", {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + data.jwt,
+    },
+
+    body: JSON.stringify(data.data),
+  });
+
+  const resData = await res.json();
+
+  // console.log("created post : ", resData);
+
+  dispatch({ type: CREATE_NEW_POST, payload: resData });
+  } catch (error) {
+    console.log("error - ",error);
+  }
+
+
+};
+
+export const findUserPost = (data) => async (dispatch) => {
+  // console.log("data --------- ",data)
+
+  try {
+    
+  const res = await fetch(
+    `http://localhost:5454/api/posts/following/${data.userIds}`,
+    {
+      method: "GET",
+
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + data.jwt,
       },
+
       body: JSON.stringify(data.data),
-    });
+    }
+  );
 
-    const post = await res.json();
+  const resData = await res.json();
 
-    console.log("created post : ", post);
-    dispatch({ type: CREATE_NEW_POST, payload: post });
+  console.log("find user post",resData);
 
+  dispatch({ type: GET_USER_POST, payload: resData });
   } catch (error) {
-    console.log("Catch Error: ", error);
+    console.log("catch error ---- ",error)
   }
 
 };
 
-export const findUserPostAction = (data) => async (dispatch) => {
-
-  try {
-    const res = await fetch(
-      `${BASE_API}/posts/following/${data.userIds}`,
-      {
-        method: "GET",
-
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-
-        body: JSON.stringify(data.data),
-      }
-    );
-
-    const posts = await res.json();
-
-    console.log("find post by user ids ", posts);
-
-    dispatch({ type: GET_USER_POST, payload: posts });
-
-  } catch (error) {
-    console.log("catch error ---- ", error);
-  }
-};
 
 export const reqUserPostAction = (data) => async (dispatch) => {
+  // console.log("data --------- ",data)
 
   try {
-    const res = await fetch(
-      `${BASE_API}/posts/following/${data.userId}`,
-      {
-        method: "GET",
+    
+  const res = await fetch(
+    `http://localhost:5454/api/posts/following/${data.userId}`,
+    {
+      method: "GET",
 
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + data.jwt,
+      },
 
-        body: JSON.stringify(data.data),
-      }
-    );
+      body: JSON.stringify(data.data),
+    }
+  );
 
-    const posts = await res.json();
+  const resData = await res.json();
 
-    console.log("req user post ", posts);
+  console.log("find user post",resData);
 
-    dispatch({ type: REQ_USER_POST, payload: posts });
-      
+  dispatch({ type: REQ_USER_POST, payload: resData });
   } catch (error) {
-    console.log("catch error ---- ", error);
+    console.log("catch error ---- ",error)
   }
+
 };
 
+
 export const likePostAction = (data) => async (dispatch) => {
+  // console.log("data --------- ",data)
 
   try {
-    const res = await fetch(
-      `${BASE_API}/posts/like/${data.postId}`,
-      {
-        method: "PUT",
-
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-
-        body: JSON.stringify(data.data),
-      }
-    );
-
-    const posts = await res.json();
-
-    console.log("like post action ", posts);
-
-    dispatch({ type: LIKE_POST, payload: posts });
     
+  const res = await fetch(
+    `http://localhost:5454/api/posts/like/${data.postId}`,
+    {
+      method: "PUT",
+
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + data.jwt,
+      },
+
+      body: JSON.stringify(data.data),
+    }
+  );
+
+  const resData = await res.json();
+
+  // console.log("like post action", resData);
+
+  dispatch({ type: LIKE_POST, payload: resData });
+
   } catch (error) {
-    console.log("error - ", error);
+    console.log("error - ",error)
   }
+
 };
 
 export const unLikePostAction = (data) => async (dispatch) => {
+  // console.log("data --------- ",data)
 
   try {
-    const res = await fetch(
-      `${BASE_API}/posts/unlike/${data.postId}`,
-      {
-        method: "PUT",
-
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-
-        body: JSON.stringify(data.data),
-      }
-    );
-
-    const post = await res.json();
-
-    console.log("unlike post action ", post);
-
-    dispatch({ type: UNLIKE_POST, payload: post });
-
-  } catch (error) {
-    console.log("error - ", error);
-  }
-};
-
-export const savePostAction = (data) => async (dispatch) => {
-  try {
-    const res = await fetch(
-      `${BASE_API}/posts/save_post/${data.postId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-      }
-    );
-    const savedPost = await res.json();
-
-    console.log("saved post", savedPost);
-
-    dispatch({ type: SAVE_POST, payload: savedPost });
-
-  } catch (error) {
-    console.log("catch error ", error);
-  }
-};
-
-export const unSavePostAction = (data) => async (dispatch) => {
-  try {
-    const res = await fetch(
-      `${BASE_API}/posts/unsave_post/${data.postId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-      }
-    );
-    const unSavedPost = await res.json();
-
-    console.log("unsaved post", unSavedPost);
-
-    dispatch({ type: UNSAVE_POST, payload: unSavedPost });
     
-  } catch (error) {
-    console.log("catch error ", error);
-  }
-};
+  const res = await fetch(
+    `http://localhost:5454/api/posts/unlike/${data.postId}`,
+    {
+      method: "PUT",
 
-export const findPostByIdAction = (data) => async (dispatch) => {
-  try {
-    const res = await fetch(`${BASE_API}/posts/${data.postId}`, {
-      method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + data.jwt,
       },
-    });
-      
-      const post = await res.json();
 
-      console.log("get single post ", post);
+      body: JSON.stringify(data.data),
+    }
+  );
 
-      dispatch({ type: GET_SINGLE_POST, payload: post });
-      
+  const resData = await res.json();
+
+  console.log("unlike post action", resData);
+
+  dispatch({ type: UNLIKE_POST, payload: resData });
+
   } catch (error) {
-    console.log("catch error ", error);
+    console.log("error - ",error)
   }
+
 };
+
+
+export const savePostAction = (data) => async (dispatch) => {
+
+  try {
+    const res = await fetch(`http://localhost:5454/api/posts/save_post/${data.postId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + data.jwt,
+    },
+  });
+  const savedPost = await res.json();
+
+  console.log("saved post", savedPost);
+  dispatch({ type: SAVE_POST, payload: savedPost });
+  } catch (error) {
+    console.log("catch error ", error)
+  }
+  
+};
+
+
+export const unSavePostAction = (data) => async (dispatch) => {
+
+  try {
+    const res = await fetch(`http://localhost:5454/api/posts/unsave_post/${data.postId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + data.jwt,
+    },
+  });
+  const unSavedPost = await res.json();
+
+  console.log("un saved post", unSavedPost);
+
+  dispatch({ type: UNSAVE_POST, payload: unSavedPost });
+  } catch (error) {
+    console.log("catch error ", error)
+  }
+  
+};
+
+export const findPostByIdAction=(data)=>async(dispatch)=>{
+  try {
+    const res=await fetch(`http://localhost:5454/api/posts/${data.postId}`,{
+    method:"GET",
+    headers:{
+      "Content-Type":"application/json",
+      Authorization:"Bearer "+data.jwt,
+    },
+  })
+  const post=await res.json();
+  dispatch({type:GET_SINGLE_POST,payload:post});
+  } catch (error) {
+    console.log("catch error ",error)
+  }
+  
+}
 
 export const deletePostAction = (data) => async (dispatch) => {
-  try {
-    const res = await fetch(
-      `${BASE_API}/posts/delete/${data.postId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + data.jwt,
-        },
-      }
-    );
-    
-    const post = await res.json();
 
-    console.log("deleted post", post);
-    
-    dispatch({ type: DELETE_POST, payload: post });
-    
+  try {
+    const res = await fetch(`http://localhost:5454/api/posts/delete/${data.postId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + data.jwt,
+    },
+  });
+  const deletedPost = await res.json();
+
+  console.log("deleted post", deletedPost);
+  dispatch({ type: DELETE_POST, payload: deletedPost });
   } catch (error) {
-    console.log("catch error ", error);
+    console.log("catch error ", error)
   }
+  
 };
+
+
+

@@ -1,24 +1,31 @@
-import React from 'react'
-import StoryViewer from '../../Components/StoryComponents/StoryViewer'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import StoryViewer from "../../Components/Story/StoryViewer/StoryViewer";
+import { findStoryByUserId } from "../../Redux/Story/Action";
+
+import { story } from "./StoryData";
 
 const Story = () => {
+  const {story}=useSelector(store=>store);
+const dispatch=useDispatch()
+  const jwt = localStorage.getItem("token");
+  const { userId } = useParams();
+// console.log(story?.stories,"-------")
+  useEffect(() => {
+    const data = { jwt, userId };
+    dispatch(findStoryByUserId(data));
+  }, [userId]);
 
-    const story = [
-        {
-            image: "https://cdn.pixabay.com/photo/2023/04/06/19/11/flower-7904985_640.jpg"
-        }, {
-            image: "https://cdn.pixabay.com/photo/2023/03/29/19/01/fern-7886160_640.jpg"
-        }, {
-            image: "https://cdn.pixabay.com/photo/2023/04/05/15/39/animal-7901753__340.jpg"
-        }, {
-            image: "https://cdn.pixabay.com/photo/2022/10/24/14/21/puppy-7543571__340.jpg"
-        }
-    ]
   return (
     <div>
-        <StoryViewer stories={story} />
+      {story.stories?.length>0 && <StoryViewer stories={story.stories} />}
+      {/* <StoryViewer stories={story} />
+     <StoryViewer stories={story} />
+     <StoryViewer stories={story} />
+     <StoryViewer stories={story} /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Story
+export default Story;
