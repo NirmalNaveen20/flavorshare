@@ -1,0 +1,74 @@
+/* Style the button */
+.btn-primary {
+    background-color: #3897f0;
+    border-color: #3897f0;
+  }
+  
+  /* Style the modal */
+  .modal-dialog {
+    max-width: 600px;
+  }
+  
+  /* Style the modal header */
+  .modal-header {
+    background-color: #fff;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  /* Style the modal title */
+  .modal-title {
+    color: #333;
+    font-weight: 600;
+  }
+  
+  /* Style the modal body */
+  .modal-body {
+    background-color: #fafafa;
+  }
+  
+  /* Style the form group */
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Style the label */
+  label {
+    font-weight: 600;
+  }
+  
+  /* Style the textarea */
+  textarea.form-control {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 0.5rem;
+    resize: none;
+  }
+  
+  /* Style the input file */
+  input.form-control-file {
+    overflow: hidden;
+  }
+  
+  input.form-control-file::-webkit-file-upload-button {
+    background-color: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+  }
+  
+  input.form-control-file::-webkit-file-upload-button:hover {
+    background-color: #2684f0;
+    border-color: #2684f0;
+  }
+  
+  /* Style the modal footer */
+  .modal-footer {
+    background-color: #fafafa;
+    border-top: 1px solid #e6e6e6;
+  }
+  

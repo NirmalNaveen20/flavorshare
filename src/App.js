@@ -1,10 +1,14 @@
+import { Routes } from "react-router";
+import Routers from "./Pages/Router/Routers";
 
-import Router from './Pages/Router/Router';
+
 
 function App() {
   return (
-    <div className="App">
-      <Router />
+    <div className="">
+      
+<Routers/>
+
     </div>
   );
 }

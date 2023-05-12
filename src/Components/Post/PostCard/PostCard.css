@@ -1,0 +1,58 @@
+p{
+  font-size: small;
+}
+.commentBox {
+    box-sizing: border-box;
+    font-size: small;
+    
+    
+    /* other styles */
+  }
+
+  .commentInput{
+
+    border: none;
+    outline: none;
+    /* border-top: 1px solid rgb(191, 191, 191); */
+    width: 100%;
+    /* padding-bottom: .7rem; */
+    padding: .5rem .7rem;
+
+  }
+
+  .commentInput::placeholder {
+    font-size: small;
+
+
+  }
+
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dots {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .dropdown-content {
+   
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dots {
+    background-color: #ddd;
+  }
+  
