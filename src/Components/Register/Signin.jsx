@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { signinAction } from "../../Redux/Auth/Action";
 import { getUserProfileAction } from "../../Redux/User/Action";
+import logo from "../../Images/flavor.png"
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email address").required("Required"),
@@ -59,7 +60,7 @@ const Signin = () => {
         <Box p={8} display="flex" flexDirection="column" alignItems="center">
           <img
             className="border border-red-800 mb-5"
-            src="https://i.imgur.com/zqpwkLQ.png"
+            src={logo}
             alt=""
           />
 
@@ -107,7 +108,7 @@ const Signin = () => {
                 </Field>
                 <p className="text-center">
                   People who use our service may have uploaded your contact
-                  information to Instagram. Learn More
+                  information to FlavorPrime. Learn More
                 </p>
                 <p className="mt-5 text-center">
                   By signing up, you agree to our Terms , Privacy Policy and
