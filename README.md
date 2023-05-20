@@ -31,17 +31,8 @@ Once you have installed the dependencies, you can start the app on your local ma
 
 This will start the app, and you can begin using it right away.
 
-## Challenge
-
-If you're feeling up for a challenge, try to find the dependencies required for the front end implementation of Flavorshare using required dependencies. If you're not able to find the dependencies, don't worry! You can contact me through this site for assistance https://nirmalnaveen.me.
-
-## Backend
-
-The backend for Flavorshare is implemented using Spring Boot. We are currently in the process of updating the backend files, and will update this repository with the latest changes as soon as possible.
-
 ## Contributing
 We welcome contributions to Flavorshare from the community! If you would like to contribute, please submit a pull request with your changes. We will review your code and merge it into the main branch if it meets our quality standards.
 
-https://drive.google.com/drive/folders/1_WIYQh0c6JKtKNS1q95AlW6_7sahdoSy?usp=share_link
 
 ## I ❤️ OPEN SOURCE
