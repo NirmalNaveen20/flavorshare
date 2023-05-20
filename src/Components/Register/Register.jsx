@@ -1,6 +1,7 @@
 import { Form } from "formik";
 import React from "react";
 import "./Register.css";
+import logo from "../../Images/flavor.png"
 
 const Register = () => {
   return (
@@ -16,8 +17,8 @@ const Register = () => {
         
         <div class="">
           <img
-            src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-            alt="Instagram Logo"
+            src={logo}
+            alt="Falvorfeed Logo"
           />
 
           <form>

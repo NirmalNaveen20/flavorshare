@@ -115,12 +115,12 @@ const CommentModal = ({
                 </div>
                 <hr />
 
-                <div className="comments ">
+                <div className="comments">
                   {post?.singlePost?.comments?.length > 0 &&
                     post?.singlePost?.comments.map((item) => <CommentCard comment={item} />)}
                 </div>
 
-                <div className=" absolute bottom-0 w-[90%]">
+                <div className="absolute bottom-0 w-[90%]">
                   <div className="flex justify-between items-center w-full mt-5">
                     <div className="flex items-center space-x-2 ">
                       {isPostLiked ? (
@@ -160,7 +160,7 @@ const CommentModal = ({
                   <p className="opacity-70 pb-5">
                     {timeDifference(post?.singlePost?.createdAt)}
                   </p>
-                  <div className=" flex items-center ">
+                  <div className="flex items-center ">
                     <BsEmojiSmile className="mr-3 text-xl" />
                     <input
                       className="commentInput w-[70%]"

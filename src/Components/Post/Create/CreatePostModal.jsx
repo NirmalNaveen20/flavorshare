@@ -191,11 +191,11 @@ const CreatePostModal = ({ onOpen, isOpen, onClose }) => {
                   <input
                     className="locationInput"
                     type="text"
-                    placeholder="Add Location"
+                    placeholder="Description"
                     name="location"
                     onChange={handleInputChange}
                   />
-                  <GoLocation />
+                
                 </div>
                 <hr />
               </div>

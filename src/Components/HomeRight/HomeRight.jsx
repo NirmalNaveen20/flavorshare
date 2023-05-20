@@ -40,35 +40,11 @@ const HomeRight = ({suggestedUser}) => {
             />
           ))}
         </div>
-        <div className="opacity-60 text-xs flex items-center flex-wrap mt-10">
-            <span>About</span>
-            <BsDot/>
-            <span>Help</span>
-            <BsDot/>
-            <span>Press</span>
-            <BsDot/>
-            <span>API</span>
-            <BsDot/>
-            <span>Jobs</span>
-            <BsDot/>
-            <span>Privacy</span>
-            <BsDot/>
-            <span>Terms</span>
-            <BsDot/>
-            <span>Locations</span>
-            <BsDot/>
-            <span>Language</span>
-            <BsDot/>
-            <span>English</span>
-            <BsDot/>
-            <span>Meta</span>
-            <BsDot/>
-            <span>Verified</span>
+
                 
          
         </div>
       </div>
-    </div>
   );
 };
 
