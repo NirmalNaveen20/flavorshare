@@ -40,8 +40,11 @@ const HomeRight = ({suggestedUser}) => {
             />
           ))}
         </div>
+
+                
+         
+        </div>
       </div>
-    </div>
   );
 };
 

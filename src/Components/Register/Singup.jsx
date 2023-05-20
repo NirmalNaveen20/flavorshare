@@ -15,16 +15,16 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../Images/flavor.png"
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email address").required("Required"),
+  email: Yup.string().email("Invalid email address").required("Email is Required"),
   username: Yup.string()
     .min(4, "Username must be at least 4 characters")
-    .required("Required"),
+    .required("Username is Required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
-    .required("Required"),
+    .required("Password is Required"),
   name: Yup.string()
     .min(2, "Name must be at least 2 characters")
-    .required("Required"),
+    .required("Full Name is Required"),
 });
 
 const Signup = () => {
@@ -130,10 +130,10 @@ if(auth.signup?.username){
               </Field>
               <p className="text-center">
                 People who use our service may have uploaded your contact
-                information to FlavorPrime. Learn More
+                information to FlavorFeed. Learn More
               </p>
               <p className="mt-5 text-center">
-                By signing up, you agree to our Terms , Privacy Policy and
+                By signing up, you agree to our Terms Privacy Policy and
                 Cookies Policy .
               </p>
               <Button

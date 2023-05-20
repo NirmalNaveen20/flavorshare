@@ -18,7 +18,7 @@ const Register = () => {
         <div class="">
           <img
             src={logo}
-            alt="Instagram Logo"
+            alt="Falvorfeed Logo"
           />
 
           <form>

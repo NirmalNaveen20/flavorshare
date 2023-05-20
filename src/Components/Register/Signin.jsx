@@ -16,10 +16,10 @@ import { getUserProfileAction } from "../../Redux/User/Action";
 import logo from "../../Images/flavor.png"
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email address").required("Required"),
+  email: Yup.string().email("Invalid email address").required("Email is Required"),
   password: Yup.string()
     .min(8, "Password must be at least 8 characters")
-    .required("Required"),
+    .required("Password is Required"),
 });
 
 const Signin = () => {
@@ -108,10 +108,10 @@ const Signin = () => {
                 </Field>
                 <p className="text-center">
                   People who use our service may have uploaded your contact
-                  information to FlavorPrime. Learn More
+                  information to FlavorFeed
                 </p>
                 <p className="mt-5 text-center">
-                  By signing up, you agree to our Terms , Privacy Policy and
+                  By signing up, you agree to our Terms Privacy Policy and
                   Cookies Policy .
                 </p>
                 <Button
